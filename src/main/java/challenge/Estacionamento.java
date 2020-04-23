@@ -13,7 +13,6 @@ public class Estacionamento {
 
     public void estacionar(Carro carro) {
         motoristaEstaHabilitado(carro.getMotorista());
-//        verificaCarro(carro);
 
         if(haVagas(carro)){
             listaCarros.add(carro);
@@ -46,9 +45,6 @@ public class Estacionamento {
         }
 
         return true;
-    }
-
-    public void verificaCarro(Carro carro) {
     }
 
     public void motoristaEstaHabilitado(Motorista motorista) {
