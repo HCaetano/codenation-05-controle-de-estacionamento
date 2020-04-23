@@ -9,9 +9,11 @@ public class Carro {
     private final Cor cor;
 
     private Carro(Motorista motorista, String placa, Cor cor) {
-        if(motorista == null) throw new EstacionamentoException("Não foi possível identificar o motorista.");
-        if(placa == null || placa.isEmpty()) throw new NullPointerException("Carro deve possuir placa.");
-        if(cor == null) throw new NullPointerException("Carro deve informar cor.");
+//        if(Objects.isNull(motorista)) throw new EstacionamentoException("Não foi possível identificar o motorista.");
+//        if(motorista == null) throw new EstacionamentoException("Não foi possível identificar o motorista.");
+//        if(placa == null || placa.isEmpty()) throw new NullPointerException("Carro deve possuir placa.");
+//        if(cor == null) throw new NullPointerException("Carro deve informar cor.");
+//        if(Objects.isNull(cor)) throw new NullPointerException("Carro deve informar cor.");
 
         this.motorista = motorista;
         this.placa = placa;

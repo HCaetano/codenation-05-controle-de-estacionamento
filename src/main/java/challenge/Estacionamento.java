@@ -9,7 +9,7 @@ public class Estacionamento {
     private List<Carro> listaCarros = new ArrayList<>();
 
     public void estacionar(Carro carro) {
-//        motoristaEstaHabilitado(carro.getMotorista());
+        motoristaEstaHabilitado(carro.getMotorista());
         verificaCarro(carro);
 
         if(haVagas()){
@@ -38,7 +38,12 @@ public class Estacionamento {
     }
 
     public void motoristaEstaHabilitado(Motorista motorista) {
-//        if(motorista.getIdade() < 0) throw new IllegalArgumentException("Motorista não pode ter idade negativa");
-//        if(motorista.getPontos() < 0) throw new IllegalArgumentException("Motorista não pode ter pontos negativos");
+        if (motorista == null) {
+            throw new EstacionamentoException("Carro deve possuir motorista.");
+        }
+
+        if (motorista.getIdade() < 18) {
+            throw new EstacionamentoException("Motorista deve ser maior de idade");
+        }
     }
 }
