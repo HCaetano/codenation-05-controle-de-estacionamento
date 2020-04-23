@@ -12,7 +12,6 @@ public class Motorista {
 
     private Motorista(String nome, int idade, int pontos, String habilitacao) {
         if(nome.isEmpty()) throw new NullPointerException("Motorista não informou seu nome.");
-//        if(idade < 18 && idade > 0) throw new EstacionamentoException("Motorista é menor de idade.");
         if(habilitacao.isEmpty()) throw new NullPointerException("Motorista não informou sua habilitacao.");
 
         this.nome = nome;
