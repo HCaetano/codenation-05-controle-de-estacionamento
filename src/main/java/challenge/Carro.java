@@ -1,14 +1,17 @@
 package challenge;
 
+import java.util.Objects;
+
 public class Carro {
 
     private final Motorista motorista;
-
     private final String placa;
-
     private final Cor cor;
 
     private Carro(Motorista motorista, String placa, Cor cor) {
+        if(placa == null || placa.isEmpty()) throw new NullPointerException("Carro deve possuir placa.");
+        if(cor == null) throw new NullPointerException("A cor do carro deve ser informada.");
+
         this.motorista = motorista;
         this.placa = placa;
         this.cor = cor;
