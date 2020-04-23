@@ -11,8 +11,8 @@ public class Motorista {
     private final String habilitacao;
 
     private Motorista(String nome, int idade, int pontos, String habilitacao) {
-        if(nome.isEmpty()) throw new NullPointerException("Motorista não informou seu nome.");
-        if(habilitacao.isEmpty()) throw new NullPointerException("Motorista não informou sua habilitacao.");
+        if(nome == null || nome.isEmpty()) throw new NullPointerException("Motorista não informou seu nome.");
+        if(habilitacao == null || habilitacao.isEmpty()) throw new NullPointerException("Motorista não informou sua habilitação.");
 
         this.nome = nome;
         this.idade = idade;
