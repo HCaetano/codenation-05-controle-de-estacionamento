@@ -1,7 +1,6 @@
 package challenge;
 
 
-import challenge.Exceptions.EstacionamentoException;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -6,14 +6,18 @@ import java.util.Objects;
 public class Motorista {
 
     private final String nome;
-
     private final int idade;
-
     private final int pontos;
-
     private final String habilitacao;
 
     private Motorista(String nome, int idade, int pontos, String habilitacao) {
+        if(nome.isEmpty()) throw new NullPointerException("Motorista não informou seu nome.");
+        if(idade < 18 && idade > 0) throw new EstacionamentoException("Motorista é menor de idade.");
+        if(idade < 0) throw new IllegalArgumentException("Motorista não pode possuir idade negativa.");
+        if(pontos > 20) throw new EstacionamentoException("Motorista possui mais de 20 pontos em sua habilitação.");
+        if(pontos < 0) throw new IllegalArgumentException("Motorista não pode possuir pontos negativos em sua habilitação.");
+        if(habilitacao.isEmpty()) throw new NullPointerException("Motorista não informou sua habilitacao.");
+
         this.nome = nome;
         this.idade = idade;
         this.pontos = pontos;

@@ -5,12 +5,14 @@ import java.util.Objects;
 public class Carro {
 
     private final Motorista motorista;
-
     private final String placa;
-
     private final Cor cor;
 
     private Carro(Motorista motorista, String placa, Cor cor) {
+        if(motorista == null) throw new EstacionamentoException("Não foi possível identificar o motorista.");
+        if(placa == null || placa.isEmpty()) throw new NullPointerException("Carro deve possuir placa.");
+        if(cor == null) throw new NullPointerException("Carro deve informar cor.");
+
         this.motorista = motorista;
         this.placa = placa;
         this.cor = cor;

@@ -1,7 +1,5 @@
 package challenge;
 
-import challenge.Exceptions.EstacionamentoLotadoException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +9,16 @@ public class Estacionamento {
     private List<Carro> listaCarros = new ArrayList<>();
 
     public void estacionar(Carro carro) {
+//        motoristaEstaHabilitado(carro.getMotorista());
+        verificaCarro(carro);
+
         if(haVagas()){
             listaCarros.add(carro);
         }
     }
 
     public int carrosEstacionados() {
-        return 0;
+        return listaCarros.size();
     }
 
     public boolean carroEstacionado(Carro carro) {
@@ -25,10 +26,19 @@ public class Estacionamento {
     }
 
     public boolean haVagas() {
-        if(listaCarros.size() >= CAPACIDADE_MAXIMA) {
-            throw new EstacionamentoLotadoException("O estacionamento está lotado.");
+        if(carrosEstacionados() == CAPACIDADE_MAXIMA) {
+            throw new EstacionamentoException("O estacionamento está lotado.");
         } else {
             return true;
         }
+    }
+
+    public void verificaCarro(Carro carro) {
+        if(carro.getCor() == null) throw new NullPointerException("Cor do carro não foi informada.");
+    }
+
+    public void motoristaEstaHabilitado(Motorista motorista) {
+//        if(motorista.getIdade() < 0) throw new IllegalArgumentException("Motorista não pode ter idade negativa");
+//        if(motorista.getPontos() < 0) throw new IllegalArgumentException("Motorista não pode ter pontos negativos");
     }
 }
